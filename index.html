@@ -1,43 +1,69 @@
-FRONT OF CARD
-
-
-
-hush-hush — zsh — 80×24
->
-HUSH HUSH LTD.
->
-creative intelligence for growing brands
->
-——————————————————————————
-$
-initializing creative systems...
-
-name
-Haley Hyde
-role
-Founder & Creative Strategist
-email
-haley@hydemont.org
-phone
-720 · 938 · 6004
-location
-Longmont, Colorado
-● HUSH HUSH
-Cut through the noise.
-hushhushltd.com
-// actual print size: 3.5 × 2 inches — scale all type down ~30% for final file
-BACK OF CARD — OPTION A (COFFEE CTA)
->
-hush hush
-CREATIVE INTELLIGENCE STUDIO
-let's grab coffee. most people leave with 2–3 ideas they can use immediately.
-BACK OF CARD — OPTION B (MINIMAL MARK)
-HH
-HUSHHUSHLTD.COM
-FOR PRINT PRODUCTION
-Export this concept to Canva at 3.5 × 2 in at 300 DPI. Use JetBrains Mono (free on Google Fonts) for all terminal text. Background is pure #000000. The purple accent is #c084fc — you can swap this for your brand red #df2935 or blue #3772ff depending on what you want to lead with.
-COLOR VARIANT OPTIONS
-The terminal accent color can rotate across your primary palette. Print a run in purple #c084fc, red #df2935, and yellow #fdca40 — same black card, different accent. Makes the card feel like a limited edition and gives you something to hand strategically depending on the room you're in.
-PAPER STOCK RECOMMENDATION
-Black matte or soft-touch laminate. The terminal aesthetic dies on glossy stock. Ask your printer for 16pt matte + soft touch laminate — it'll feel as sharp as it looks. MOO and Printful both do this well.
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haley Hyde — Hush Hush Ltd.</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1c1c1e; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; padding: 24px 16px; }
+    .label { color: #555; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px; }
+    .terminal { width: 100%; max-width: 680px; background: #0d0d0d; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.7); }
+    .titlebar { background: #1e1e1e; padding: 11px 16px; display: flex; align-items: center; position: relative; }
+    .dots { display: flex; gap: 7px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.r { background: #ff5f57; }
+    .dot.y { background: #febc2e; }
+    .dot.g { background: #28c840; }
+    .title { position: absolute; left: 50%; transform: translateX(-50%); color: #6a6a6a; font-size: 12px; white-space: nowrap; }
+    .body { padding: 30px 36px 28px; }
+    .line { display: flex; align-items: baseline; gap: 12px; margin-bottom: 5px; }
+    .chevron { color: #c084fc; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+    .cmd { color: #fff; font-size: 15px; font-weight: 700; }
+    .cmd .accent { color: #c084fc; font-weight: 400; }
+    .dashes { color: #c084fc; opacity: 0.45; font-size: 13px; letter-spacing: -1px; }
+    .sys { color: #4a4a4a; font-size: 13px; margin: 14px 0 20px 0; }
+    .divider { border: none; border-top: 1px solid #222; margin: 0 0 20px 0; }
+    .info { display: grid; grid-template-columns: 72px 1fr; gap: 9px 20px; }
+    .k { color: #4a4a4a; font-size: 13px; }
+    .v { color: #d0d0d0; font-size: 13px; }
+    .v.hi { color: #c084fc; }
+    .statusbar { background: #c084fc; padding: 9px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .sb-left { display: flex; align-items: center; gap: 7px; color: #000; font-size: 12px; font-weight: 700; }
+    .sb-dot { width: 7px; height: 7px; background: #000; border-radius: 50%; flex-shrink: 0; }
+    .sb-mid { color: #000; font-size: 12px; font-weight: 700; }
+    .sb-right { color: #000; font-size: 12px; }
+    .footer { color: #3a3a3a; font-size: 11px; margin-top: 14px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="label">FRONT OF CARD</div>
+  <div class="terminal">
+    <div class="titlebar">
+      <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+      <span class="title">hush-hush &mdash; zsh &mdash; 80&times;24</span>
+    </div>
+    <div class="body">
+      <div class="line"><span class="chevron">&gt;</span><span class="cmd">HUSH HUSH LTD.</span></div>
+      <div class="line"><span class="chevron">&gt;</span><span class="cmd">creative intelligence <span class="accent">for</span> growing brands</span></div>
+      <div class="line" style="margin-top:3px"><span class="chevron">&gt;</span><span class="dashes">&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;</span></div>
+      <div class="sys"><span style="margin-right:8px;color:#4a4a4a">$</span>initializing creative systems...</div>
+      <hr class="divider">
+      <div class="info">
+        <span class="k">name</span><span class="v">Haley Hyde</span>
+        <span class="k">role</span><span class="v hi">Founder &amp; Creative Strategist</span>
+        <span class="k">email</span><span class="v">haley@hydemont.org</span>
+        <span class="k">phone</span><span class="v">720 &middot; 938 &middot; 6004</span>
+        <span class="k">location</span><span class="v">Longmont, Colorado</span>
+      </div>
+    </div>
+    <div class="statusbar">
+      <div class="sb-left"><div class="sb-dot"></div> HUSH HUSH</div>
+      <div class="sb-mid">Cut through the noise.</div>
+      <div class="sb-right">hushhushltd.com</div>
+    </div>
+  </div>
+  <div class="footer">// actual print size: 3.5 &times; 2 inches &mdash; scale all type down ~30% for final file</div>
+</body>
+</html>
