@@ -7,17 +7,48 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1c1c1e; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; padding: 24px 16px; }
-    .label { color: #555; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px; }
-    .terminal { width: 100%; max-width: 680px; background: #0d0d0d; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.7); }
-    .titlebar { background: #1e1e1e; padding: 11px 16px; display: flex; align-items: center; position: relative; }
+
+    body {
+      background: #1c1c1e;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 24px 16px;
+      gap: 16px;
+    }
+
+    /* ── BUSINESS CARD ── */
+    .terminal {
+      width: 100%;
+      max-width: 680px;
+      background: #0d0d0d;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+    }
+
+    .titlebar {
+      background: #1e1e1e;
+      padding: 11px 16px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
     .dots { display: flex; gap: 7px; }
     .dot { width: 12px; height: 12px; border-radius: 50%; }
     .dot.r { background: #ff5f57; }
     .dot.y { background: #febc2e; }
     .dot.g { background: #28c840; }
-    .title { position: absolute; left: 50%; transform: translateX(-50%); color: #6a6a6a; font-size: 12px; white-space: nowrap; }
+    .title {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      color: #6a6a6a; font-size: 12px; white-space: nowrap;
+    }
+
     .body { padding: 30px 36px 28px; }
+
     .line { display: flex; align-items: baseline; gap: 12px; margin-bottom: 5px; }
     .chevron { color: #c084fc; font-size: 15px; font-weight: 700; flex-shrink: 0; }
     .cmd { color: #fff; font-size: 15px; font-weight: 700; }
@@ -25,21 +56,137 @@
     .dashes { color: #c084fc; opacity: 0.45; font-size: 13px; letter-spacing: -1px; }
     .sys { color: #4a4a4a; font-size: 13px; margin: 14px 0 20px 0; }
     .divider { border: none; border-top: 1px solid #222; margin: 0 0 20px 0; }
+
     .info { display: grid; grid-template-columns: 72px 1fr; gap: 9px 20px; }
     .k { color: #4a4a4a; font-size: 13px; }
     .v { color: #d0d0d0; font-size: 13px; }
     .v.hi { color: #c084fc; }
-    .statusbar { background: #c084fc; padding: 9px 16px; display: flex; align-items: center; justify-content: space-between; }
+
+    .statusbar {
+      background: #c084fc;
+      padding: 9px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     .sb-mid { color: #000; font-size: 12px; font-weight: 700; }
     .sb-right { color: #000; font-size: 12px; }
-    .footer { color: #3a3a3a; font-size: 11px; margin-top: 14px; text-align: center; }
+
+    /* ── CONTACT FORM ── */
+    .form-card {
+      width: 100%;
+      max-width: 680px;
+      background: #0d0d0d;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+      border: 1px solid #1e1e1e;
+    }
+
+    .form-titlebar {
+      background: #1e1e1e;
+      padding: 11px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-prompt { color: #c084fc; font-size: 12px; font-weight: 700; }
+    .form-title { color: #6a6a6a; font-size: 12px; }
+
+    .form-body { padding: 24px 36px 28px; }
+
+    .form-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .form-cmd { color: #555; font-size: 13px; }
+    .form-cmd span { color: #c084fc; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      align-items: center;
+      gap: 10px 20px;
+      margin-bottom: 14px;
+    }
+    .field-label { color: #4a4a4a; font-size: 13px; }
+
+    .field-input {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      padding: 8px 12px;
+      color: #d0d0d0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.15s;
+    }
+    .field-input:focus { border-color: #c084fc; }
+    .field-input::placeholder { color: #333; }
+
+    .form-divider { border: none; border-top: 1px solid #1a1a1a; margin: 20px 0; }
+
+    .submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .submit-hint { color: #333; font-size: 11px; }
+    .submit-hint span { color: #c084fc; }
+
+    .submit-btn {
+      background: #c084fc;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 20px;
+      color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+    .submit-btn:hover { opacity: 0.85; }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── STATUS MESSAGE ── */
+    .status-msg {
+      display: none;
+      font-size: 12px;
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+    .status-msg.success {
+      display: block;
+      background: rgba(40, 200, 64, 0.1);
+      border: 1px solid rgba(40, 200, 64, 0.3);
+      color: #28c840;
+    }
+    .status-msg.error {
+      display: block;
+      background: rgba(255, 95, 87, 0.1);
+      border: 1px solid rgba(255, 95, 87, 0.3);
+      color: #ff5f57;
+    }
   </style>
 </head>
 <body>
-  <div class="label">FRONT OF CARD</div>
+
+  <!-- Business card -->
   <div class="terminal">
     <div class="titlebar">
-      <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+      <div class="dots">
+        <div class="dot r"></div>
+        <div class="dot y"></div>
+        <div class="dot g"></div>
+      </div>
       <span class="title">hush-hush &mdash; zsh &mdash; 80&times;24</span>
     </div>
     <div class="body">
@@ -61,6 +208,102 @@
       <div class="sb-right">hydemont.framer.website</div>
     </div>
   </div>
-  <div class="footer">// actual print size: 3.5 &times; 2 inches &mdash; scale all type down ~30% for final file</div>
+
+  <!-- Contact capture form -->
+  <div class="form-card">
+    <div class="form-titlebar">
+      <span class="form-prompt">&gt;</span>
+      <span class="form-title">new_contact.sh &mdash; capture</span>
+    </div>
+    <div class="form-body">
+
+      <div class="form-header">
+        <span class="form-cmd">$ <span>drop your info</span> &mdash; i'll be in touch</span>
+      </div>
+
+      <form id="contactForm" onsubmit="submitToAirtable(event)">
+        <div class="field-row">
+          <label class="field-label" for="field-name">name</label>
+          <input id="field-name" class="field-input" type="text" placeholder="your name" required />
+        </div>
+
+        <div class="field-row">
+          <label class="field-label" for="field-phone">phone</label>
+          <input id="field-phone" class="field-input" type="tel" placeholder="your number" />
+        </div>
+
+        <div class="field-row">
+          <label class="field-label" for="field-email">email</label>
+          <input id="field-email" class="field-input" type="email" placeholder="your email" />
+        </div>
+
+        <hr class="form-divider">
+
+        <div class="submit-row">
+          <span class="submit-hint">→ saves to <span>Airtable</span></span>
+          <button class="submit-btn" type="submit" id="submitBtn">./submit.sh</button>
+        </div>
+
+        <div id="statusMsg" class="status-msg"></div>
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    const AIRTABLE_TOKEN = 'patRXJ48mXuF7SbHQ.91748f384f61b420e6cf563e530a92854b0d8fa39a4a63ee72a1657c3408dca6';
+    const BASE_ID = 'app8pQoM5mOXpnplB';
+    const TABLE_ID = 'tblAIaccWbl7YNQXV';
+
+    async function submitToAirtable(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      const msg = document.getElementById('statusMsg');
+      const name = document.getElementById('field-name').value.trim();
+      const phone = document.getElementById('field-phone').value.trim();
+      const email = document.getElementById('field-email').value.trim();
+
+      btn.disabled = true;
+      btn.textContent = 'sending...';
+      msg.className = 'status-msg';
+      msg.textContent = '';
+
+      const fields = { Name: name };
+      if (phone) fields['Phone'] = phone;
+      if (email) fields['Email'] = email;
+      fields['Date Added'] = new Date().toISOString().split('T')[0];
+
+      try {
+        const res = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_ID}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ records: [{ fields }] })
+        });
+
+        if (res.ok) {
+          msg.className = 'status-msg success';
+          msg.textContent = '✓ got it — i\'ll be in touch soon.';
+          document.getElementById('contactForm').reset();
+        } else {
+          const err = await res.json();
+          msg.className = 'status-msg error';
+          msg.textContent = '✗ something went wrong. try again?';
+          console.error(err);
+        }
+      } catch (err) {
+        msg.className = 'status-msg error';
+        msg.textContent = '✗ network error. try again?';
+        console.error(err);
+      }
+
+      btn.disabled = false;
+      btn.textContent = './submit.sh';
+    }
+  </script>
+
 </body>
 </html>
